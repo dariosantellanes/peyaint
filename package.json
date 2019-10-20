@@ -1,0 +1,23 @@
+{
+  "name": "peyaint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dariosantellanes/peyaint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dariosantellanes/peyaint/issues"
+  },
+  "homepage": "https://github.com/dariosantellanes/peyaint#readme",
+  "dependencies": {
+    "jsontoxml": "^1.0.1"
+  }
+}

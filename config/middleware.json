@@ -1,0 +1,7 @@
+{
+    "pedidosYaService": {
+        "url": "http://vmrdr.mocklab.io/pedidosya",
+        "endpoint":"/v1/orders",
+        "port": "80"
+    }
+}
