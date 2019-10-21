@@ -14,14 +14,8 @@ class PyService {
         this.fetchData();
     }
 
-    isValidSchema(data){
-        return true;
-    }
-
     processResponse(data) {
-        if(this.isValidSchema(data)){
-            this._dataService.processData(data);
-        }
+        this._dataService.processData(data);
     }
 
     fetchData() {
