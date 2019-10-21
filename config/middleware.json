@@ -1,7 +1,29 @@
 {
-    "pedidosYaService": {
+    "PedidosYaService": {
         "url": "http://vmrdr.mocklab.io/pedidosya",
-        "endpoint":"/v1/orders",
-        "port": "80"
+        "endpoint": "v1/orders",
+        "port": 80
+    },
+    "RestoSoftService": {
+        "url": "http://vmrdr.mocklab.io/restosoft",
+        "endpoint": "v1/orders",
+        "port": 80,
+        "headers": [
+            {
+                "Authorization": "restosoft-test-developer"
+            }
+        ],
+        "format": "json"
+    },
+    "XResto": {
+        "url": "http://vmrdr.mocklab.io/xresto",
+        "endpoint": "v2/orders",
+        "port": 80,
+        "headers": [
+            {
+                "Authorization": "xresto-test-developer"
+            }
+        ],
+        "format": "xml"
     }
 }
