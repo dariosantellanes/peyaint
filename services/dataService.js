@@ -1,11 +1,15 @@
 const async = require('async');
 const listFiles = require('./listFiles');
 const validateSchema = require('./validateSchema');
+const calloutService = require('./calloutService');
+
+const Logger = require('./logger');
 
 class DataService {
 
     constructor() {
         this._services = {};
+        this._logger = new Logger();
     }
 
     async init() {
@@ -31,7 +35,8 @@ class DataService {
             if (iter.integration && this._services[iter.integration.toLowerCase()]) {
                 if (!validateSchema(iter).error) {
                     let integration = iter.integration.toLowerCase();
-                    this._services[integration].processData(iter);
+                    let calloutData = this._services[integration].processData(iter);
+                    calloutService(calloutData, iter.id, this._logger);
                 } else {
                     console.log('Invalid response');
                 }
@@ -48,10 +53,11 @@ class DataService {
 module.exports = DataService;
 
 
-const run = () => {
+const run = async () => {
     let service = new DataService();
+    await service.init();
     process.on('message', (data) => {
-
+        service.processData(data);
     });
 };
 

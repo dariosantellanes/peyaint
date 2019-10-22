@@ -1,21 +1,24 @@
 const axios = require('axios');
 const config = require('config');
-const DataService = require('./dataService');
+const { fork } = require('child_process');
 
 class PyService {
 
     constructor() {
         this._srvConfig = config.PedidosYaService;
-        this._dataService = new DataService();
+        this._dataService = undefined;
+
     }
 
     async start() {
-        await this._dataService.init();
+        this._dataService = fork('./services/dataService');
         this.fetchData();
     }
 
     processResponse(data) {
-        this._dataService.processData(data);
+        if(this._dataService){
+            this._dataService.send(data);
+        }
     }
 
     fetchData() {
@@ -29,7 +32,10 @@ class PyService {
             .catch(error => {
                 console.log(error);
             });
+        setTimeout(this.fetchData.bind(this), 2000);
     }
 }
 
 module.exports = PyService
+
+

@@ -1,4 +1,7 @@
 class Logger {
+    logResponse(response){
+        console.log(response);
+    }
 
 }
 
