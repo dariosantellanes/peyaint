@@ -16,7 +16,7 @@ class PyService {
     }
 
     processResponse(data) {
-        if(this._dataService){
+        if (this._dataService) {
             this._dataService.send(data);
         }
     }

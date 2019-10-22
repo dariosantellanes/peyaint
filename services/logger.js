@@ -1,5 +1,5 @@
 class Logger {
-    logResponse(response){
+    logResponse(response) {
         console.log(response);
     }
 

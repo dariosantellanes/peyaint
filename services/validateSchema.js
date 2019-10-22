@@ -40,7 +40,7 @@ const schema = Joi.object({
         }))
 });
 
-module.exports = function (data) { 
+module.exports = function (data) {
     return schema.validate(data);
-    
+
 };
