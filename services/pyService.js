@@ -11,6 +11,7 @@ class PyService {
     }
 
     async start() {
+        console.log('Strarting...');
         this._dataService = fork('./services/dataService');
         this.fetchData();
     }

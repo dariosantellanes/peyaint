@@ -1,1 +1,2 @@
-Run: node index.js
+Run:    npm install
+        node index.js
